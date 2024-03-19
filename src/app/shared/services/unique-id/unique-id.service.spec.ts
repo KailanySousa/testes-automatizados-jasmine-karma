@@ -43,4 +43,14 @@ describe(UniqueIdService.name, () => {
             ).toThrow();
         })
     });
+
+    it(`${UniqueIdService.prototype.generateUniqueIdWithPrefix.name} should throw when called with prefix invalid`, () => {
+        const invalidValues = ['0', '1'];
+
+        invalidValues.forEach(value => {
+            expect(
+                () => service.generateUniqueIdWithPrefix(value)
+            ).toThrow();
+        })
+    });
 });

@@ -40,7 +40,9 @@ describe(UniqueIdService.name, () => {
         emptyValues.forEach(value => {
             expect(
                 () => service.generateUniqueIdWithPrefix(value)
-            ).toThrow();
+            )
+                .withContext(`Empty value: ${value}`)
+                .toThrow();
         })
     });
 
@@ -50,7 +52,9 @@ describe(UniqueIdService.name, () => {
         invalidValues.forEach(value => {
             expect(
                 () => service.generateUniqueIdWithPrefix(value)
-            ).toThrow();
+            )
+                .withContext(`Invalid value: ${value}`)
+                .toThrow();
         })
     });
 });

@@ -26,5 +26,12 @@ describe(`${LikeWidgetComponent.name}`, () => {
         fixture.detectChanges();
         expect(component.id).toBeTruthy();
     });
-
+    
+    it(`Should not generate ID when id input property is present`, () => {
+        const component = fixture.componentInstance;
+        const someId = 'someId';
+        component.id = someId;
+        fixture.detectChanges();
+        expect(component.id).toBe(someId);
+    });
 })
